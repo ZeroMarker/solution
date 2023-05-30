@@ -17,6 +17,7 @@ auto fizz_buzz(int a) -> std::string {
 int main(void) {
     int num;
     std::cin >> num;
+    num = 16;
     std::cout << fizz_buzz(num) << std::endl;
     return 0;
 }
