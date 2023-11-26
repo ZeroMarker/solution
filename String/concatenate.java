@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class concatenateString {
+public class concatenate {
     /**
      * Concatenate two string one by one character,
      * if str1.len < str2.len, repeat str2 character.

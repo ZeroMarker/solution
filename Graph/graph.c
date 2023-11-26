@@ -1,6 +1,5 @@
 //adjacency matrix degree
-
-#include<stdio.h> 
+#include <stdio.h> 
 
 void matrix(int m, int n){
 	int i,j;

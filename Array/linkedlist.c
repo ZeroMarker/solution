@@ -29,29 +29,29 @@ int insert(Node* head, int data) {
 }
 
 int delete(Node* head, int data) {
-    if(head -> next == NULL){
+    if (head->next == NULL) {
         printf("The Linkedlist is empty.\n");
         return 1;
     }
-    head = head -> next;
-    do{
-        if (head -> data == data) {
-            head -> prior -> next = head -> next;
-            head -> next -> prior = head -> prior;
+    head = head->next;
+    do {
+        if (head->data == data) {
+            head->prior->next = head->next;
+            head->next->prior = head->prior;
             free(head);
         }
-        head = head -> next;
-    } while(head->next != NULL);
+        head = head->next;
+    } while (head->next != NULL);
 }
 
 int print(Node* head) {
-    if(head -> next == NULL){
+    if (head->next == NULL) {
         printf("The Linkedlist is empty.\n");
         return 0;
     }
     for (; head->next != NULL; head = head->next) {
-        Node* next = head -> next;
-        printf("%d\t", next -> data);
+        Node* next = head->next;
+        printf("%d\t", next->data);
     }
     printf("\n");
     return 1;

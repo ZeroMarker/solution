@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 
 
 auto fizz_buzz(int a) -> std::string {

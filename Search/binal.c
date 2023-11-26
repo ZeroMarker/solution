@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int binal(int* a, int len, int target){
 	int low = 0, high = len -1;

@@ -1,58 +1,80 @@
-#include<stdio.h>
+#include <stdio.h>
+
 #define MAX 20
 
-void merge(int a[],int l,int r,int mid){
-	int aux[r-l+1],i,j,k;
-	for(k=l;k<=r;k++)
-	aux[k-l]=a[k];
-	i=l;
-	j=mid+1;
-	for(k=l;k<=r;k++) {
-		if(i>mid){
-  			a[k]=aux[j-l];
-  			j++;
-		}
-		else if(j>r){
-			a[k]=aux[i-l];
-			i++;
-		}
-		else if(aux[i-l]>aux[j-l]){
-			a[k]=aux[j-l];
-			j++;
-		}
-		else{
-			a[k]=aux[i-l];
-			i++;
-		}
-	}	
-	
+void merge(int arr[], int l, int m, int r) {
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    int L[n1], R[n2];
+
+    for (i = 0; i < n1; i++)
+        L[i] = arr[l + i];
+    for (j = 0; j < n2; j++)
+        R[j] = arr[m + 1 + j];
+
+    i = 0;
+    j = 0;
+    k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
 }
- 
-void merge_sort(int a[], int l, int r){
-    if(l >=r ) {
-    	return ;
-	}
-	int mid = (l+r)/2;
-	merge_sort(a, l, mid);
-	merge_sort(a, mid+1, r);
-	merge(a, l, r, mid);		
+
+void merge_sort(int arr[], int l, int r) {
+    if (l < r) {
+        int m = l + (r - l) / 2;
+
+        merge_sort(arr, l, m);
+        merge_sort(arr, m + 1, r);
+
+        merge(arr, l, m, r);
+    }
 }
- 
- 
-void mergesort(int a[], int l, int r){
-	merge_sort(a, l, r-1);
+
+int main() {
+    int arr[MAX];
+    int n, i;
+
+    // Input size of array
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    // Input array elements
+    printf("Enter the elements:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Call merge_sort to sort the array
+    merge_sort(arr, 0, n - 1);
+
+    // Display sorted array
+    printf("Sorted array: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
 }
- 
-int main(void){
-	int a[MAX];
-	int n, i;
-	scanf("%d",&n);
-	for(i = 0; i < n; i++){
-		scanf("%d", &a[i]);
-	}
-	mergesort(a, 0, n);
-	for(i = 0; i < n; i++){
-		printf("%d ", a[i]);
-	}
-	return 0;
- } 

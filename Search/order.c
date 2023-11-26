@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int order(int a[], int len, int key) {
 	int i;
