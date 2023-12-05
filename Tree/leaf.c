@@ -1,12 +1,11 @@
-// binary tree leaf
 #include <math.h>
 #include <stdio.h>
-#define MAX 100
+#define MAX 10
 
 int input() {
     int a[MAX];
     int i = 0, c = 0;
-    char ch;
+    char ch = ' ';  // Initialize ch to avoid undefined behavior
     for (i = 0; i < MAX && ch != '\n'; i++) {
         scanf("%d", &a[i]);
         ch = getchar();
@@ -17,9 +16,10 @@ int input() {
     }
     return c;
 }
+
 int count(int length) {
     int k = floor(log(length) / log(2)) + 1;
-    printf("%d", k);
+    printf("%d\n", k);  // Add a newline character for better formatting
     int m0 = 0;
     int m1 = 0;
     int m2 = 0;
@@ -39,6 +39,6 @@ int count(int length) {
 int main(void) {
     int length;
     length = input();
-    printf("%d ", length);
+    printf("%d \n", count(length));
     return 0;
 }
