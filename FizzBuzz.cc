@@ -1,5 +1,8 @@
 #include <iostream>
+<<<<<<< HEAD
 #include <string>
+=======
+>>>>>>> d8a1399c2416c72b2ff2938d4f814f82828a9189
 
 auto fizz_buzz(int a) -> std::string {
     if(a % 15 == 0) {
